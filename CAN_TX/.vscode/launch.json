@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug STM32",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/firmware.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "device": "STM32F103C8",
+            "svdFile": "${workspaceFolder}/SYSTEM/Debug/STM32F103.svd",
+            "preLaunchTask": "build 2.0",
+            "postDebugTask": "kill openocd",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 10
+            },
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "runToEntryPoint": "main"
+        },
+        {
+            "name": "Renode Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/firmware.elf",
+            "miDebuggerPath": "C:/Users/luuph/OneDrive/Desktop/arm-none-eabi-gdb.exe",
+            "miDebuggerServerAddress": "localhost:3333",
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "text": "target remote localhost:3333"
+                },
+                {
+                    "text": "monitor reset"
+                },
+                {
+                    "text": "load"
+                }
+            ]
+        }
+    ]
+}

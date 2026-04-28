@@ -1,0 +1,76 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "AUTOSAR\\BSW\\MCAL\\",
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR\\BSW\\ECUAbstraction\\",
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR\\Bsw",
+            "color": "foldercolorizer.color_33ccff"
+        },
+        {
+            "folderPath": "AUTOSAR\\CONFIG\\",
+            "color": "foldercolorizer.color_6666ff"
+        },
+        {
+            "folderPath": "AUTOSAR\\2_RTE\\",
+            "color": "foldercolorizer.color_9900cc"
+        },
+        {
+            "folderPath": "AUTOSAR\\App",
+            "color": "foldercolorizer.color_996633"
+        },
+        {
+            "extension": "c",
+            "color": "foldercolorizer.color_d7d7d7"
+        },
+        {
+            "folderPath": "AUTOSAR\\SYSTEM\\",
+            "color": "foldercolorizer.color_3300ff"
+        },
+        {
+            "folderPath": "AUTOSAR\\.vscode\\",
+            "color": "foldercolorizer.color_ffccff"
+        },
+        {
+            "folderPath": "AUTOSAR\\BSW\\Services\\",
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR\\BSW\\ECUAbstraction\\",
+            "isFolderOnly": true,
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR\\Bsw",
+            "isFolderOnly": true,
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR\\BSW\\MCAL\\",
+            "isFolderOnly": true,
+            "color": "foldercolorizer.color_00cccc"
+        },
+        {
+            "folderPath": "AUTOSAR_Architecture\\CONFIG\\",
+            "color": "foldercolorizer.color_00cc33"
+        },
+        {
+            "folderPath": "AUTOSAR_Architecture\\3_BSW\\",
+            "color": "foldercolorizer.color_66cc00"
+        },
+        {
+            "folderPath": "AUTOSAR_Architecture\\2_RTE\\",
+            "color": "foldercolorizer.color_33ccff"
+        },
+        {
+            "folderPath": "AUTOSAR_Architecture\\1_APP\\",
+            "color": "foldercolorizer.color_6666ff"
+        }
+    ],
+    "cortex-debug.variableUseNaturalFormat": true
+}

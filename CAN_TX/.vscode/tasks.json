@@ -1,0 +1,29 @@
+	{
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "build 2.0",
+				"type": "shell",
+				"command": "make all",
+				"group": "build",
+				"problemMatcher": []
+			},
+			{
+				"label": "kill openocd",
+				"type": "shell",
+				"command": "taskkill",
+				"args": [
+					"/IM",
+					"openocd.exe",
+					"/F"
+				],
+				"problemMatcher": []
+			},
+			{
+				"label": "Run Renode Simulation",
+				"type": "shell",
+				"command": "D:/Renode/renode.exe ${file}",
+				"group": "build",
+			}
+		]
+	}
