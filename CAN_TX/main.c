@@ -2,23 +2,27 @@
 #include <stdint.h>
 #include "Can.h"
 
-// Biến quan sát dữ liệu nhận được
 volatile uint32_t rx_id_val;
 volatile uint8_t rx_buffer[8];
 volatile uint32_t rx_count = 0;
 
+void delay(volatile uint32_t t)
+{
+    while (t--)
+        __NOP();
+}
+
 int main(void)
 {
     Can_Init();
-    Can_Filter_Config();
+
+    uint8_t payload[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+    uint32_t myID = 0x123;
 
     while (1)
     {
-
-        if ((CAN1->RF0R & 0x03) != 0)
-        {
-            Can_Read((uint32_t *)&rx_id_val, (uint8_t *)rx_buffer);
-            rx_count++;
-        }
+        Can_Write(myID, payload, 8);
+        payload[0]++;
+        delay(1000000);
     }
 }
