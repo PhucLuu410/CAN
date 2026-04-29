@@ -2,23 +2,28 @@
 #include <stdint.h>
 #include "Can.h"
 
-// Biến quan sát dữ liệu nhận được
-volatile uint32_t rx_id_val;
-volatile uint8_t rx_buffer[8];
-volatile uint32_t rx_count = 0;
+uint16_t FilterID = 0x7F8;
+Can_RxMessageType RxMsg;
+Can_TxMessageType TxMsg[] = {
+    [SENSOR_DATA] = {.id = 0x7F8,
+                     .len = 8,
+                     .data = {0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8}},
+    [CONTROL_DATA] = {.id = 0x7F9,
+                      .len = 8,
+                      .data = {0x9, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x10}}};
+
+void delay(volatile uint32_t count)
+{
+    while (count--)
+        ;
+}
 
 int main(void)
 {
-    Can_Init();
-    Can_Filter_Config();
-
+    Can_Init(RELEASE_MODE);
+    Can_Filter_Config(FilterID);
     while (1)
     {
-
-        if ((CAN1->RF0R & 0x03) != 0)
-        {
-            Can_Read((uint32_t *)&rx_id_val, (uint8_t *)rx_buffer);
-            rx_count++;
-        }
+        Can_Read(&RxMsg, FilterID);
     }
 }

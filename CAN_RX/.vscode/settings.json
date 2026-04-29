@@ -72,5 +72,5 @@
             "color": "foldercolorizer.color_6666ff"
         }
     ],
-    "cortex-debug.variableUseNaturalFormat": true
+    "cortex-debug.variableUseNaturalFormat": false
 }
