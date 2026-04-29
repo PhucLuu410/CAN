@@ -1,6 +1,4 @@
 
-There are no discarded input sections
-
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -10,21 +8,21 @@ RAM              0x20000000         0x00005000         xrw
 
 Linker script and memory map
 
-LOAD C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
-LOAD C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
-LOAD C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
 .isr_vector     0x08000000       0xe4
-                0x08000000                        . = ALIGN (0x4)
+                0x08000000                . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x08000000       0xe4 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+ .isr_vector    0x08000000       0xe4 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
                 0x08000000                g_pfnVectors
-                0x080000e4                        . = ALIGN (0x4)
+                0x080000e4                . = ALIGN (0x4)
 
-.text           0x080000e4      0x380
-                0x080000e4                        . = ALIGN (0x4)
+.text           0x080000e4      0x484
+                0x080000e4                . = ALIGN (0x4)
  *(.text)
- .text          0x080000e4       0x64 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+ .text          0x080000e4       0x64 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
                 0x080000e4                Reset_Handler
                 0x08000140                HardFault_Handler
                 0x08000140                SysTick_Handler
@@ -45,121 +43,127 @@ LOAD C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
                 0x08000140                EXTI1_IRQHandler
                 0x08000140                BusFault_Handler
                 0x08000140                USART1_IRQHandler
- .text          0x08000148       0x3c C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
-                0x08000148                main
- .text          0x08000184      0x2e0 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
-                0x080001f8                Can_Init
-                0x08000284                Can_Filter_Config
-                0x08000314                Can_Write
-                0x080003bc                Can_Read
+ .text          0x08000148       0xd0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+                0x08000148                delay
+                0x0800016a                main
+ .text          0x08000218      0x340 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
+                0x0800028c                Can_Init
+                0x08000320                Can_Filter_Config
+                0x080003b0                Can_Write
+                0x080004ac                Can_Read
  *(.text*)
  *(.rodata)
+ .rodata        0x08000558       0x10 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
  *(.rodata*)
-                0x08000464                        . = ALIGN (0x4)
-                0x08000464                        _etext = .
+                0x08000568                . = ALIGN (0x4)
+                0x08000568                _etext = .
 
-.glue_7         0x08000464        0x0
- .glue_7        0x08000464        0x0 linker stubs
+.glue_7         0x08000568        0x0
+ .glue_7        0x08000568        0x0 linker stubs
 
-.glue_7t        0x08000464        0x0
- .glue_7t       0x08000464        0x0 linker stubs
+.glue_7t        0x08000568        0x0
+ .glue_7t       0x08000568        0x0 linker stubs
 
-.vfp11_veneer   0x08000464        0x0
- .vfp11_veneer  0x08000464        0x0 linker stubs
+.vfp11_veneer   0x08000568        0x0
+ .vfp11_veneer  0x08000568        0x0 linker stubs
 
-.v4_bx          0x08000464        0x0
- .v4_bx         0x08000464        0x0 linker stubs
+.v4_bx          0x08000568        0x0
+ .v4_bx         0x08000568        0x0 linker stubs
 
-.iplt           0x08000464        0x0
- .iplt          0x08000464        0x0 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+.iplt           0x08000568        0x0
+ .iplt          0x08000568        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
 
-.rel.dyn        0x08000464        0x0
- .rel.iplt      0x08000464        0x0 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+.rel.dyn        0x08000568        0x0
+ .rel.iplt      0x08000568        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
 
-.data           0x20000000        0x0 load address 0x08000464
-                0x20000000                        . = ALIGN (0x4)
-                0x20000000                        _sdata = .
+.data           0x20000000        0x0 load address 0x08000568
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
  *(.data)
- .data          0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .data          0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .data          0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+ .data          0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .data          0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .data          0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
  *(.data*)
-                0x20000000                        . = ALIGN (0x4)
-                0x20000000                        _edata = .
-                0x08000464                        _sidata = LOADADDR (.data)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _edata = .
+                0x08000568                _sidata = LOADADDR (.data)
 
-.igot.plt       0x20000000        0x0 load address 0x08000464
- .igot.plt      0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+.igot.plt       0x20000000        0x0 load address 0x08000568
+ .igot.plt      0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
 
-.bss            0x20000000       0x2c load address 0x08000464
-                0x20000000                        . = ALIGN (0x4)
-                0x20000000                        _sbss = .
+.bss            0x20000000       0x34 load address 0x08000568
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sbss = .
  *(.bss)
- .bss           0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .bss           0x20000000       0x10 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
+ .bss           0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .bss           0x20000000       0x18 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
                 0x20000000                rx_id_val
                 0x20000004                rx_buffer
                 0x2000000c                rx_count
- .bss           0x20000010       0x19 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
-                0x20000010                id
-                0x20000014                data
-                0x20000018                rx_msg
-                0x20000028                rx_flag
+                0x20000010                first_id
+                0x20000014                second_id
+ .bss           0x20000018       0x19 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
+                0x20000018                id
+                0x2000001c                data
+                0x20000020                rx_msg
+                0x20000030                rx_flag
  *(.bss*)
  *(COMMON)
-                0x2000002c                        . = ALIGN (0x4)
- *fill*         0x20000029        0x3 
-                0x2000002c                        _ebss = .
-                0x2000002c                        _sheap = .
-                0x20005000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x20000034                . = ALIGN (0x4)
+ *fill*         0x20000031        0x3 
+                0x20000034                _ebss = .
+                0x20000034                _sheap = .
+                0x20005000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
 OUTPUT(firmware.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000      0xa2f
- .debug_info    0x00000000      0x147 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .debug_info    0x00000147      0x37d C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .debug_info    0x000004c4      0x56b C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.debug_info     0x00000000      0xb08
+ .debug_info    0x00000000      0x14c C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .debug_info    0x0000014c      0x3f8 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .debug_info    0x00000544      0x5c4 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
-.debug_abbrev   0x00000000      0x423
- .debug_abbrev  0x00000000       0xe7 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .debug_abbrev  0x000000e7      0x145 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .debug_abbrev  0x0000022c      0x1f7 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.debug_abbrev   0x00000000      0x3f9
+ .debug_abbrev  0x00000000       0xcf C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .debug_abbrev  0x000000cf      0x141 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .debug_abbrev  0x00000210      0x1e9 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
 .debug_aranges  0x00000000       0x60
  .debug_aranges
-                0x00000000       0x20 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+                0x00000000       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
  .debug_aranges
-                0x00000020       0x20 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
+                0x00000020       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
  .debug_aranges
-                0x00000040       0x20 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+                0x00000040       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
-.debug_line     0x00000000      0x5c9
- .debug_line    0x00000000      0x154 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .debug_line    0x00000154      0x160 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .debug_line    0x000002b4      0x315 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.debug_line     0x00000000      0x62c
+ .debug_line    0x00000000      0x186 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .debug_line    0x00000186      0x1a3 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .debug_line    0x00000329      0x303 C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
-.debug_str      0x00000000      0x34b
- .debug_str     0x00000000      0x34b C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
-                                0x18f (size before relaxing)
- .debug_str     0x0000034b      0x280 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .debug_str     0x0000034b      0x30d C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.debug_str      0x00000000      0x37b
+ .debug_str     0x00000000      0x15a C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+                                0x197 (size before relaxing)
+ .debug_str     0x0000015a      0x153 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+                                0x28c (size before relaxing)
+ .debug_str     0x000002ad       0xce C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
+                                0x31a (size before relaxing)
 
-.comment        0x00000000       0x45
- .comment       0x00000000       0x45 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
-                                 0x46 (size before relaxing)
- .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.comment        0x00000000       0x49
+ .comment       0x00000000       0x49 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+                                 0x4a (size before relaxing)
+ .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
 .ARM.attributes
                 0x00000000       0x2d
  .ARM.attributes
-                0x00000000       0x2d C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
+                0x00000000       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
  .ARM.attributes
-                0x0000002d       0x2d C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
+                0x0000002d       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
  .ARM.attributes
-                0x0000005a       0x2d C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+                0x0000005a       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o
 
-.debug_frame    0x00000000      0x130
- .debug_frame   0x00000000       0x48 C:\Users\luuph\AppData\Local\Temp\ccqEJql2.o
- .debug_frame   0x00000048       0x2c C:\Users\luuph\AppData\Local\Temp\ccolqyI4.o
- .debug_frame   0x00000074       0xbc C:\Users\luuph\AppData\Local\Temp\cc4gFFrb.o
+.debug_frame    0x00000000      0x15c
+ .debug_frame   0x00000000       0x48 C:\Users\PHUCLU~1\AppData\Local\Temp\ccopmeSc.o
+ .debug_frame   0x00000048       0x58 C:\Users\PHUCLU~1\AppData\Local\Temp\ccKcg9Vl.o
+ .debug_frame   0x000000a0       0xbc C:\Users\PHUCLU~1\AppData\Local\Temp\ccZvMOgs.o

@@ -39,9 +39,11 @@ void Can_Init(void)
     while (!(CAN1->MSR & (1 << 0)))
         ;
 
-    CAN1->BTR |= (4 - 1);    // BRP = 4 (Prescaler)
-    CAN1->BTR |= (12 << 16); // TS1 = 12
-    CAN1->BTR |= (3 << 20);  // TS2 = 3
+    CAN1->BTR = 0;
+
+    CAN1->BTR |= (4 - 1);
+    CAN1->BTR |= (11 << 16); // TS1 = 12 tq
+    CAN1->BTR |= (2 << 20);  // TS2 = 3 tq
     CAN1->BTR |= (0 << 24);  // SJW = 1 (mặc định)
 
     CAN1->MCR &= ~(1 << 0);
@@ -69,23 +71,32 @@ void Can_Filter_Config(void)
 
 void Can_Write(uint32_t ID, uint8_t *payload, uint8_t len)
 {
-    // 1. Chờ cho đến khi có ít nhất một Mailbox trống (TME0, 1 hoặc 2)
-    // Ở đây mình ví dụ dùng Mailbox 0 cho đơn giản
-    while (!(CAN1->TSR & (1 << 26)))
+    uint8_t mb;
+
+    /* chờ có mailbox trống */
+    while ((CAN1->TSR & ((1 << 26) | (1 << 27) | (1 << 28))) == 0)
         ;
 
-    // 2. Thiết lập ID (Dịch 21 bit vì Standard ID nằm từ bit 21-31)
-    CAN1->sTxMailBox[0].TIR = (ID << 21);
+    /* chọn mailbox trống */
+    if (CAN1->TSR & (1 << 26))
+        mb = 0;
+    else if (CAN1->TSR & (1 << 27))
+        mb = 1;
+    else
+        mb = 2;
 
-    // 3. Thiết lập số lượng Byte gửi đi (0-8)
-    CAN1->sTxMailBox[0].TDTR = (len & 0x0F);
+    CAN1->sTxMailBox[mb].TIR = (ID << 21);
 
-    // 4. Đổ dữ liệu vào ngăn kéo (chia làm 2 thanh ghi Low và High)
-    CAN1->sTxMailBox[0].TDLR = payload[0] | (payload[1] << 8) | (payload[2] << 16) | (payload[3] << 24);
-    CAN1->sTxMailBox[0].TDHR = payload[4] | (payload[5] << 8) | (payload[6] << 16) | (payload[7] << 24);
+    CAN1->sTxMailBox[mb].TDTR = (len & 0x0F);
 
-    // 5. Bấm nút GỬI (Set bit TXRQ)
-    CAN1->sTxMailBox[0].TIR |= (1 << 0);
+    CAN1->sTxMailBox[mb].TDLR =
+        payload[0] | (payload[1] << 8) | (payload[2] << 16) | (payload[3] << 24);
+
+    CAN1->sTxMailBox[mb].TDHR =
+        payload[4] | (payload[5] << 8) | (payload[6] << 16) | (payload[7] << 24);
+
+    /* transmit request */
+    CAN1->sTxMailBox[mb].TIR |= 1;
 }
 
 void Can_Read(uint32_t *ID, uint8_t *buffer)
@@ -94,7 +105,7 @@ void Can_Read(uint32_t *ID, uint8_t *buffer)
     if ((CAN1->RF0R & 0x03) != 0)
     {
         // 2. Lấy ID ra (Dịch ngược lại 21 bit)
-        *ID = (CAN1->sFIFOMailBox[0].RIR >> 21);
+        *ID = (CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FF;
 
         // 3. Lấy dữ liệu ra
         uint32_t low = CAN1->sFIFOMailBox[0].RDLR;
