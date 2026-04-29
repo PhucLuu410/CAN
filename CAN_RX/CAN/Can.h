@@ -27,6 +27,6 @@ typedef struct
 void Can_Init(uint8_t Mode);
 void Can_Filter_Config(uint16_t id);
 void Can_Write(Can_TxMessageType *TxMsg);
-void Can_Read(Can_RxMessageType *RxMsg, uint16_t id);
+void Can_Read(Can_RxMessageType *RxMsg);
 
 #endif

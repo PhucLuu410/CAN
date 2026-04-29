@@ -25,7 +25,6 @@ void Can_Init(uint8_t Mode)
     CAN1->MCR |= (1 << 0);
     while (!(CAN1->MSR & (1 << 0)))
         ;
-
     if (Mode == TEST_MODE)
     {
         CAN1->BTR |= (3 << 30);
@@ -69,9 +68,8 @@ void Can_Write(Can_TxMessageType *TxMsg)
         ;
 }
 
-void Can_Read(Can_RxMessageType *RxMsg, uint16_t id)
+void Can_Read(Can_RxMessageType *RxMsg)
 {
-    CAN1->sFIFOMailBox[0].RIR |= (id << 21);
     RxMsg->id = (CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FF;
     RxMsg->len = (CAN1->sFIFOMailBox[0].RDTR) & 0xF;
     RxMsg->data[0] = CAN1->sFIFOMailBox[0].RDLR & 0xFF;

@@ -43,13 +43,12 @@ void Can_Init(uint8_t Mode)
 void Can_Filter_Config(uint16_t id)
 {
     CAN1->FMR |= (1 << 0);
-    CAN1->FMR &= ~(1 << 8);
-    CAN1->FM1R |= (1 << 0);
+    CAN1->FM1R &= ~(1 << 0);
     CAN1->FS1R |= (1 << 0);
-    CAN1->FA1R |= (1 << 0);
-
+    CAN1->FFA1R &= ~(1 << 0);
     CAN1->sFilterRegister[0].FR1 = (id << 21);
     CAN1->sFilterRegister[0].FR2 = 0;
+    CAN1->FA1R |= (1 << 0);
     CAN1->FMR &= ~(1 << 0);
 }
 
@@ -69,9 +68,8 @@ void Can_Write(Can_TxMessageType *TxMsg)
         ;
 }
 
-void Can_Read(Can_RxMessageType *RxMsg, uint16_t id)
+void Can_Read(Can_RxMessageType *RxMsg)
 {
-    CAN1->sFIFOMailBox[0].RIR |= (id << 21);
     RxMsg->id = (CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FF;
     RxMsg->len = (CAN1->sFIFOMailBox[0].RDTR) & 0xF;
     RxMsg->data[0] = CAN1->sFIFOMailBox[0].RDLR & 0xFF;

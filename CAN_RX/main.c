@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "Can.h"
 
-uint16_t FilterID = 0x7F8;
+uint16_t FilterID = 0x109;
 Can_RxMessageType RxMsg;
 Can_TxMessageType TxMsg[] = {
     [SENSOR_DATA] = {.id = 0x7F8,
@@ -24,6 +24,6 @@ int main(void)
     Can_Filter_Config(FilterID);
     while (1)
     {
-        Can_Read(&RxMsg, FilterID);
+        Can_Read(&RxMsg);
     }
 }

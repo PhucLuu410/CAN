@@ -10,21 +10,21 @@ RAM              0x20000000         0x00005000         xrw
 
 Linker script and memory map
 
-LOAD C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
-LOAD C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
-LOAD C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+LOAD C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+LOAD C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+LOAD C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .isr_vector     0x08000000       0xe4
                 0x08000000                        . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x08000000       0xe4 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+ .isr_vector    0x08000000       0xe4 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
                 0x08000000                g_pfnVectors
                 0x080000e4                        . = ALIGN (0x4)
 
-.text           0x080000e4      0x3d0
+.text           0x080000e4      0x3b8
                 0x080000e4                        . = ALIGN (0x4)
  *(.text)
- .text          0x080000e4       0x64 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+ .text          0x080000e4       0x64 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
                 0x080000e4                Reset_Handler
                 0x08000140                HardFault_Handler
                 0x08000140                SysTick_Handler
@@ -45,10 +45,10 @@ LOAD C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
                 0x08000140                EXTI1_IRQHandler
                 0x08000140                BusFault_Handler
                 0x08000140                USART1_IRQHandler
- .text          0x08000148       0x44 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
+ .text          0x08000148       0x44 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
                 0x08000148                delay
                 0x08000168                main
- .text          0x0800018c      0x328 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .text          0x0800018c      0x310 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
                 0x08000200                Can_Init
                 0x0800028c                Can_Filter_Config
                 0x08000318                Can_Write
@@ -56,52 +56,52 @@ LOAD C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
  *(.text*)
  *(.rodata)
  *(.rodata*)
-                0x080004b4                        . = ALIGN (0x4)
-                0x080004b4                        _etext = .
+                0x0800049c                        . = ALIGN (0x4)
+                0x0800049c                        _etext = .
 
-.glue_7         0x080004b4        0x0
- .glue_7        0x080004b4        0x0 linker stubs
+.glue_7         0x0800049c        0x0
+ .glue_7        0x0800049c        0x0 linker stubs
 
-.glue_7t        0x080004b4        0x0
- .glue_7t       0x080004b4        0x0 linker stubs
+.glue_7t        0x0800049c        0x0
+ .glue_7t       0x0800049c        0x0 linker stubs
 
-.vfp11_veneer   0x080004b4        0x0
- .vfp11_veneer  0x080004b4        0x0 linker stubs
+.vfp11_veneer   0x0800049c        0x0
+ .vfp11_veneer  0x0800049c        0x0 linker stubs
 
-.v4_bx          0x080004b4        0x0
- .v4_bx         0x080004b4        0x0 linker stubs
+.v4_bx          0x0800049c        0x0
+ .v4_bx         0x0800049c        0x0 linker stubs
 
-.iplt           0x080004b4        0x0
- .iplt          0x080004b4        0x0 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+.iplt           0x0800049c        0x0
+ .iplt          0x0800049c        0x0 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
 
-.rel.dyn        0x080004b4        0x0
- .rel.iplt      0x080004b4        0x0 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+.rel.dyn        0x0800049c        0x0
+ .rel.iplt      0x0800049c        0x0 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
 
-.data           0x20000000       0x24 load address 0x080004b4
+.data           0x20000000       0x24 load address 0x0800049c
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
- .data          0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .data          0x20000000       0x24 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
+ .data          0x20000000        0x0 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .data          0x20000000       0x24 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
                 0x20000000                FilterID
                 0x20000004                TxMsg
- .data          0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .data          0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
  *(.data*)
                 0x20000024                        . = ALIGN (0x4)
                 0x20000024                        _edata = .
-                0x080004b4                        _sidata = LOADADDR (.data)
+                0x0800049c                        _sidata = LOADADDR (.data)
 
-.igot.plt       0x20000024        0x0 load address 0x080004d8
- .igot.plt      0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+.igot.plt       0x20000024        0x0 load address 0x080004c0
+ .igot.plt      0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
 
-.bss            0x20000024       0x10 load address 0x080004d8
+.bss            0x20000024       0x10 load address 0x080004c0
                 0x20000024                        . = ALIGN (0x4)
                 0x20000024                        _sbss = .
  *(.bss)
- .bss           0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .bss           0x20000024       0x10 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
+ .bss           0x20000024        0x0 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .bss           0x20000024       0x10 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
                 0x20000024                RxMsg
- .bss           0x20000034        0x0 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .bss           0x20000034        0x0 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
  *(.bss*)
  *(COMMON)
                 0x20000034                        . = ALIGN (0x4)
@@ -111,51 +111,51 @@ LOAD C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
 OUTPUT(firmware.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000      0x88a
- .debug_info    0x00000000      0x147 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .debug_info    0x00000147      0x1f1 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .debug_info    0x00000338      0x552 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+.debug_info     0x00000000      0x87e
+ .debug_info    0x00000000      0x147 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .debug_info    0x00000147      0x1f1 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .debug_info    0x00000338      0x546 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
-.debug_abbrev   0x00000000      0x37e
- .debug_abbrev  0x00000000       0xe7 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .debug_abbrev  0x000000e7      0x10a C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .debug_abbrev  0x000001f1      0x18d C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+.debug_abbrev   0x00000000      0x37d
+ .debug_abbrev  0x00000000       0xe7 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .debug_abbrev  0x000000e7      0x10a C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .debug_abbrev  0x000001f1      0x18c C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .debug_aranges  0x00000000       0x60
  .debug_aranges
-                0x00000000       0x20 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+                0x00000000       0x20 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
  .debug_aranges
-                0x00000020       0x20 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
+                0x00000020       0x20 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
  .debug_aranges
-                0x00000040       0x20 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+                0x00000040       0x20 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
-.debug_line     0x00000000      0x60f
- .debug_line    0x00000000      0x154 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .debug_line    0x00000154      0x142 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .debug_line    0x00000296      0x379 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+.debug_line     0x00000000      0x600
+ .debug_line    0x00000000      0x154 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .debug_line    0x00000154      0x142 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .debug_line    0x00000296      0x36a C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .debug_str      0x00000000      0x35d
- .debug_str     0x00000000      0x35d C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+ .debug_str     0x00000000      0x35d C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
                                 0x18f (size before relaxing)
- .debug_str     0x0000035d      0x1cc C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .debug_str     0x0000035d      0x329 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .debug_str     0x0000035d      0x1cc C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .debug_str     0x0000035d      0x329 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .comment        0x00000000       0x45
- .comment       0x00000000       0x45 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+ .comment       0x00000000       0x45 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
                                  0x46 (size before relaxing)
- .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .comment       0x00000045       0x46 C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .ARM.attributes
                 0x00000000       0x2d
  .ARM.attributes
-                0x00000000       0x2d C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
+                0x00000000       0x2d C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
  .ARM.attributes
-                0x0000002d       0x2d C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
+                0x0000002d       0x2d C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
  .ARM.attributes
-                0x0000005a       0x2d C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+                0x0000005a       0x2d C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o
 
 .debug_frame    0x00000000      0x168
- .debug_frame   0x00000000       0x48 C:\Users\luuph\AppData\Local\Temp\ccYdpjhT.o
- .debug_frame   0x00000048       0x54 C:\Users\luuph\AppData\Local\Temp\ccItjFSQ.o
- .debug_frame   0x0000009c       0xcc C:\Users\luuph\AppData\Local\Temp\ccE3MvMT.o
+ .debug_frame   0x00000000       0x48 C:\Users\luuph\AppData\Local\Temp\cceYpkwi.o
+ .debug_frame   0x00000048       0x54 C:\Users\luuph\AppData\Local\Temp\cc073JQo.o
+ .debug_frame   0x0000009c       0xcc C:\Users\luuph\AppData\Local\Temp\ccfsevTu.o

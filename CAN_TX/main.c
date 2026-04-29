@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "Can.h"
 
-uint16_t FilterID = 0x7F8;
+uint16_t FilterID = 0x7F9;
 Can_RxMessageType RxMsg;
 Can_TxMessageType TxMsg[] = {
     [SENSOR_DATA] = {.id = 0x7F8,
@@ -21,9 +21,10 @@ void delay(volatile uint32_t count)
 int main(void)
 {
     Can_Init(RELEASE_MODE);
+
     Can_Filter_Config(FilterID);
     while (1)
     {
-        Can_Write(&TxMsg[SENSOR_DATA]);
+        Can_Write(&TxMsg[CONTROL_DATA]);
     }
 }
