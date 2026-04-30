@@ -8,21 +8,21 @@ RAM              0x20000000         0x00005000         xrw
 
 Linker script and memory map
 
-LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
-LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
-LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
 .isr_vector     0x08000000       0xe4
                 0x08000000                . = ALIGN (0x4)
  *(.isr_vector)
- .isr_vector    0x08000000       0xe4 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+ .isr_vector    0x08000000       0xe4 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
                 0x08000000                g_pfnVectors
                 0x080000e4                . = ALIGN (0x4)
 
-.text           0x080000e4      0x3d0
+.text           0x080000e4      0x3c8
                 0x080000e4                . = ALIGN (0x4)
  *(.text)
- .text          0x080000e4       0x64 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+ .text          0x080000e4       0x64 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
                 0x080000e4                Reset_Handler
                 0x08000140                HardFault_Handler
                 0x08000140                SysTick_Handler
@@ -43,122 +43,119 @@ LOAD C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
                 0x08000140                EXTI1_IRQHandler
                 0x08000140                BusFault_Handler
                 0x08000140                USART1_IRQHandler
- .text          0x08000148       0x68 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
+ .text          0x08000148       0x44 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
                 0x08000148                delay
-                0x0800016a                main
- .text          0x080001b0      0x2fc C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
-                0x08000224                Can_Filter_Config
-                0x080002bc                Can_Init
-                0x08000358                Can_Write
-                0x08000400                Can_Read
+                0x08000168                main
+ .text          0x0800018c      0x320 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
+                0x08000200                Can_Init
+                0x0800028c                Can_Filter_Config
+                0x08000318                Can_Write
+                0x080003ec                Can_Read
  *(.text*)
  *(.rodata)
- .rodata        0x080004ac        0x8 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
  *(.rodata*)
-                0x080004b4                . = ALIGN (0x4)
-                0x080004b4                _etext = .
+                0x080004ac                . = ALIGN (0x4)
+                0x080004ac                _etext = .
 
-.glue_7         0x080004b4        0x0
- .glue_7        0x080004b4        0x0 linker stubs
+.glue_7         0x080004ac        0x0
+ .glue_7        0x080004ac        0x0 linker stubs
 
-.glue_7t        0x080004b4        0x0
- .glue_7t       0x080004b4        0x0 linker stubs
+.glue_7t        0x080004ac        0x0
+ .glue_7t       0x080004ac        0x0 linker stubs
 
-.vfp11_veneer   0x080004b4        0x0
- .vfp11_veneer  0x080004b4        0x0 linker stubs
+.vfp11_veneer   0x080004ac        0x0
+ .vfp11_veneer  0x080004ac        0x0 linker stubs
 
-.v4_bx          0x080004b4        0x0
- .v4_bx         0x080004b4        0x0 linker stubs
+.v4_bx          0x080004ac        0x0
+ .v4_bx         0x080004ac        0x0 linker stubs
 
-.iplt           0x080004b4        0x0
- .iplt          0x080004b4        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+.iplt           0x080004ac        0x0
+ .iplt          0x080004ac        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
 
-.rel.dyn        0x080004b4        0x0
- .rel.iplt      0x080004b4        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+.rel.dyn        0x080004ac        0x0
+ .rel.iplt      0x080004ac        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
 
-.data           0x20000000        0x4 load address 0x080004b4
+.data           0x20000000       0x24 load address 0x080004ac
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
- .data          0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .data          0x20000000        0x4 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
-                0x20000000                rx_id
- .data          0x20000004        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+ .data          0x20000000        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .data          0x20000000       0x24 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+                0x20000000                FilterID
+                0x20000004                TxMsg
+ .data          0x20000024        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
  *(.data*)
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                _edata = .
-                0x080004b4                _sidata = LOADADDR (.data)
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _edata = .
+                0x080004ac                _sidata = LOADADDR (.data)
 
-.igot.plt       0x20000004        0x0 load address 0x080004b8
- .igot.plt      0x20000004        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+.igot.plt       0x20000024        0x0 load address 0x080004d0
+ .igot.plt      0x20000024        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
 
-.bss            0x20000004       0x1c load address 0x080004b8
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                _sbss = .
+.bss            0x20000024       0x10 load address 0x080004d0
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _sbss = .
  *(.bss)
- .bss           0x20000004        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .bss           0x20000004        0x8 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
-                0x20000004                rx_buf
- .bss           0x2000000c       0x11 C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
-                0x2000000c                rx_msg
-                0x2000001c                rx_flag
+ .bss           0x20000024        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .bss           0x20000024       0x10 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+                0x20000024                RxMsg
+ .bss           0x20000034        0x0 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
  *(.bss*)
  *(COMMON)
-                0x20000020                . = ALIGN (0x4)
- *fill*         0x2000001d        0x3 
-                0x20000020                _ebss = .
-                0x20000020                _sheap = .
+                0x20000034                . = ALIGN (0x4)
+                0x20000034                _ebss = .
+                0x20000034                _sheap = .
                 0x20005000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
 OUTPUT(firmware.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000      0x803
- .debug_info    0x00000000      0x14c C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .debug_info    0x0000014c      0x138 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
- .debug_info    0x00000284      0x57f C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+.debug_info     0x00000000      0x8b5
+ .debug_info    0x00000000      0x14c C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .debug_info    0x0000014c      0x1cd C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+ .debug_info    0x00000319      0x59c C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
-.debug_abbrev   0x00000000      0x379
- .debug_abbrev  0x00000000       0xcf C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .debug_abbrev  0x000000cf       0xbf C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
- .debug_abbrev  0x0000018e      0x1eb C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+.debug_abbrev   0x00000000      0x33d
+ .debug_abbrev  0x00000000       0xcf C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .debug_abbrev  0x000000cf       0xdd C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+ .debug_abbrev  0x000001ac      0x191 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
 .debug_aranges  0x00000000       0x60
  .debug_aranges
-                0x00000000       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+                0x00000000       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
  .debug_aranges
-                0x00000020       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
+                0x00000020       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
  .debug_aranges
-                0x00000040       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+                0x00000040       0x20 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
-.debug_line     0x00000000      0x5ca
- .debug_line    0x00000000      0x186 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .debug_line    0x00000186      0x157 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
- .debug_line    0x000002dd      0x2ed C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+.debug_line     0x00000000      0x611
+ .debug_line    0x00000000      0x186 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .debug_line    0x00000186      0x168 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+ .debug_line    0x000002ee      0x323 C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
-.debug_str      0x00000000      0x342
- .debug_str     0x00000000      0x15a C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+.debug_str      0x00000000      0x36a
+ .debug_str     0x00000000      0x15a C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
                                 0x197 (size before relaxing)
- .debug_str     0x0000015a       0x29 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
-                                0x158 (size before relaxing)
- .debug_str     0x00000183      0x1bf C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
-                                0x302 (size before relaxing)
+ .debug_str     0x0000015a       0x72 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+                                0x1b4 (size before relaxing)
+ .debug_str     0x000001cc      0x19e C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
+                                0x336 (size before relaxing)
 
 .comment        0x00000000       0x49
- .comment       0x00000000       0x49 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+ .comment       0x00000000       0x49 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
                                  0x4a (size before relaxing)
- .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
- .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+ .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+ .comment       0x00000049       0x4a C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
 .ARM.attributes
                 0x00000000       0x2d
  .ARM.attributes
-                0x00000000       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
+                0x00000000       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
  .ARM.attributes
-                0x0000002d       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
+                0x0000002d       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
  .ARM.attributes
-                0x0000005a       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+                0x0000005a       0x2d C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
 
-.debug_frame    0x00000000      0x15c
- .debug_frame   0x00000000       0x48 C:\Users\PHUCLU~1\AppData\Local\Temp\ccLPfJdp.o
- .debug_frame   0x00000048       0x58 C:\Users\PHUCLU~1\AppData\Local\Temp\cczDb4Bx.o
- .debug_frame   0x000000a0       0xbc C:\Users\PHUCLU~1\AppData\Local\Temp\cc1duduJ.o
+.debug_frame    0x00000000      0x168
+ .debug_frame   0x00000000       0x48 C:\Users\PHUCLU~1\AppData\Local\Temp\ccI0OCyV.o
+ .debug_frame   0x00000048       0x54 C:\Users\PHUCLU~1\AppData\Local\Temp\ccXZdanu.o
+ .debug_frame   0x0000009c       0xcc C:\Users\PHUCLU~1\AppData\Local\Temp\ccm2XIC9.o
