@@ -21,8 +21,7 @@ void delay(volatile uint32_t count)
 int main(void)
 {
     Can_Init(RELEASE_MODE);
-
-    Can_Filter_Config(FilterID);
+            
     while (1)
     {
         Can_Write(&TxMsg[CONTROL_DATA]);

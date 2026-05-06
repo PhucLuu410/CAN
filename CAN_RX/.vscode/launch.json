@@ -24,26 +24,16 @@
             "runToEntryPoint": "main"
         },
         {
-            "name": "Renode Debug",
+            "name": "Renode Debug STM32",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/firmware.elf",
-            "miDebuggerPath": "C:/Users/luuph/OneDrive/Desktop/arm-none-eabi-gdb.exe",
             "miDebuggerServerAddress": "localhost:3333",
-            "cwd": "${workspaceFolder}",
-            "externalConsole": false,
+            "miDebuggerPath": "arm-none-eabi-gdb",
             "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "text": "target remote localhost:3333"
-                },
-                {
-                    "text": "monitor reset"
-                },
-                {
-                    "text": "load"
-                }
-            ]
+            "targetArchitecture": "arm",
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": true,
         }
     ]
 }

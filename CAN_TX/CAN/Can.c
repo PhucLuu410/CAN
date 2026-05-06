@@ -25,6 +25,7 @@ void Can_Init(uint8_t Mode)
     CAN1->MCR |= (1 << 0);
     while (!(CAN1->MSR & (1 << 0)))
         ;
+    CAN1->BTR = 0;
     if (Mode == TEST_MODE)
     {
         CAN1->BTR |= (3 << 30);
@@ -33,7 +34,10 @@ void Can_Init(uint8_t Mode)
     {
         CAN1->BTR &= ~(3 << 30);
     }
-
+    CAN1->BTR |= (0 << 24);
+    CAN1->BTR |= ((12 - 1) << 16);
+    CAN1->BTR |= ((3 - 1) << 20);
+    CAN1->BTR |= (1 - 1);
     CAN1->MCR &= ~(1 << 0);
     while (CAN1->MSR & (1 << 0))
         ;

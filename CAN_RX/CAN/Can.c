@@ -25,7 +25,7 @@ void Can_Init(uint8_t Mode)
     CAN1->MCR |= (1 << 0);
     while (!(CAN1->MSR & (1 << 0)))
         ;
-
+    CAN1->BTR = 0;
     if (Mode == TEST_MODE)
     {
         CAN1->BTR |= (3 << 30);
@@ -34,6 +34,10 @@ void Can_Init(uint8_t Mode)
     {
         CAN1->BTR &= ~(3 << 30);
     }
+    CAN1->BTR |= (1 << 24);
+    CAN1->BTR |= (7 << 16);
+    CAN1->BTR |= (2 << 20);
+    CAN1->BTR |= (8);
 
     CAN1->MCR &= ~(1 << 0);
     while (CAN1->MSR & (1 << 0))
@@ -51,6 +55,21 @@ void Can_Filter_Config(uint16_t id)
     CAN1->sFilterRegister[0].FR2 = (0x7FF << 21) | (1 << 2) | (1 << 1);
     CAN1->FA1R |= (1 << 0);
     CAN1->FMR &= ~(1 << 0);
+
+    // CAN1->FMR |= (1 << 0); // enter init mode
+
+    // CAN1->FA1R = 0; // disable all filter
+
+    // CAN1->FS1R |= (1 << 0);  // 32-bit scale
+    // CAN1->FM1R &= ~(1 << 0); // mask mode
+    // CAN1->FFA1R &= ~(1 << 0);
+
+    // CAN1->sFilterRegister[0].FR1 = 0x00000000;
+    // CAN1->sFilterRegister[0].FR2 = 0x00000000;
+
+    // CAN1->FA1R |= (1 << 0); // enable filter
+
+    // CAN1->FMR &= ~(1 << 0); // leave init mode
 }
 
 void Can_Write(Can_TxMessageType *TxMsg)
@@ -73,7 +92,15 @@ void Can_Read(Can_RxMessageType *RxMsg)
 {
     if ((CAN1->RF0R & 0x3) == 0)
         return;
-    RxMsg->id = (CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FF;
+    uint32_t rir = CAN1->sFIFOMailBox[0].RIR;
+    if (rir & (1 << 2))
+    {
+        RxMsg->id = (rir >> 3) & 0x1FFFFFFF;
+    }
+    else
+    {
+        RxMsg->id = (rir >> 21) & 0x7FF;
+    }
     RxMsg->len = (CAN1->sFIFOMailBox[0].RDTR) & 0xF;
     RxMsg->data[0] = CAN1->sFIFOMailBox[0].RDLR & 0xFF;
     RxMsg->data[1] = (CAN1->sFIFOMailBox[0].RDLR >> 8) & 0xFF;

@@ -1,0 +1,25 @@
+using sysbus
+
+# =========================
+# TẠO MACHINE
+# =========================
+mach create "stm32f4"
+
+# Load board STM32F4
+machine LoadPlatformDescription @platforms/boards/stm32f4.repl
+
+# =========================
+# LOAD FIRMWARE
+# =========================
+sysbus LoadELF @D:/Test/firmware.elf
+
+# =========================
+# DEBUG (không có GUI vẫn xem được)
+# =========================
+sysbus.can1 LogFrames true
+
+# =========================
+# RESET & RUN
+# =========================
+machine Reset
+start
