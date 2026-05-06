@@ -35,9 +35,9 @@ void Can_Init(uint8_t Mode)
         CAN1->BTR &= ~(3 << 30);
     }
     CAN1->BTR |= (1 << 24);
-    CAN1->BTR |= (7 << 16);
-    CAN1->BTR |= (2 << 20);
-    CAN1->BTR |= (8);
+    CAN1->BTR |= (6 << 16);
+    CAN1->BTR |= (1 << 20);
+    CAN1->BTR |= (7 << 0);
 
     CAN1->MCR &= ~(1 << 0);
     while (CAN1->MSR & (1 << 0))
@@ -46,30 +46,30 @@ void Can_Init(uint8_t Mode)
 
 void Can_Filter_Config(uint16_t id)
 {
-    CAN1->FMR |= (1 << 0);
-    CAN1->FA1R = 0;
-    CAN1->FS1R |= (1 << 0);
-    CAN1->FM1R &= ~(1 << 0);
-    CAN1->FFA1R &= ~(1 << 0);
-    CAN1->sFilterRegister[0].FR1 = (id << 21) | (0 << 2) | (0 << 1);
-    CAN1->sFilterRegister[0].FR2 = (0x7FF << 21) | (1 << 2) | (1 << 1);
-    CAN1->FA1R |= (1 << 0);
-    CAN1->FMR &= ~(1 << 0);
-
-    // CAN1->FMR |= (1 << 0); // enter init mode
-
-    // CAN1->FA1R = 0; // disable all filter
-
-    // CAN1->FS1R |= (1 << 0);  // 32-bit scale
-    // CAN1->FM1R &= ~(1 << 0); // mask mode
+    // CAN1->FMR |= (1 << 0);
+    // CAN1->FA1R = 0;
+    // CAN1->FS1R |= (1 << 0);
+    // CAN1->FM1R &= ~(1 << 0);
     // CAN1->FFA1R &= ~(1 << 0);
+    // CAN1->sFilterRegister[0].FR1 = 0;
+    // CAN1->sFilterRegister[0].FR2 = 0;
+    // CAN1->sFilterRegister[0].FR1 = (id << 20);
+    // CAN1->sFilterRegister[0].FR2 = (0x7FF << 20);
+    // CAN1->FA1R |= (1 << 0);
+    // CAN1->FMR &= ~(1 << 0);
 
-    // CAN1->sFilterRegister[0].FR1 = 0x00000000;
-    // CAN1->sFilterRegister[0].FR2 = 0x00000000;
+    CAN1->FMR |= 1; // init
 
-    // CAN1->FA1R |= (1 << 0); // enable filter
+    CAN1->FM1R &= ~(1 << 0);  // mask
+    CAN1->FS1R |= (1 << 0);   // 32-bit
+    CAN1->FFA1R &= ~(1 << 0); // FIFO0
 
-    // CAN1->FMR &= ~(1 << 0); // leave init mode
+    CAN1->sFilterRegister[0].FR1 = 0x00000000;
+    CAN1->sFilterRegister[0].FR2 = 0x00000000;
+
+    CAN1->FA1R |= (1 << 0); // enable
+
+    CAN1->FMR &= ~1; // exit init
 }
 
 void Can_Write(Can_TxMessageType *TxMsg)
@@ -90,8 +90,6 @@ void Can_Write(Can_TxMessageType *TxMsg)
 
 void Can_Read(Can_RxMessageType *RxMsg)
 {
-    if ((CAN1->RF0R & 0x3) == 0)
-        return;
     uint32_t rir = CAN1->sFIFOMailBox[0].RIR;
     if (rir & (1 << 2))
     {
